@@ -1,0 +1,34 @@
+services:
+  api:
+    build: ./api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/workspace
+    depends_on:
+      - style-transfer
+    restart: always
+    tty: true
+    stdin_open: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  style-transfer:
+    build: ./style-transfer
+    volumes:
+      - ./style-transfer:/workspace
+    restart: always
+    tty: true
+    stdin_open: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

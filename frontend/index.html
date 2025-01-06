@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudioGen Editor</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>AudioGen Editor</h1>
+  </header>
+
+  <main>
+    <section id="editor">
+      <div id="waveform-container">
+        <div id="waveform"></div>
+      </div>
+      <div id="controls">
+        <label for="upload" id="upload-label">Upload File</label>
+        <input type="file" id="upload" accept="audio/*">
+        <button id="play">Play</button>
+        <button id="pause">Pause</button>
+        <button id="back-to-start">Back to Start</button>
+      </div>
+      <div id="generative-fill-controls">
+        <textarea id="promptInput" rows="3" placeholder="Enter your custom prompt here"></textarea>
+        <button id="process">Generative Fill</button>
+      </div>
+    </section>
+    <div id="error"></div>
+    <div id="audioPlayers"></div>
+  </main>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>
